@@ -27,6 +27,14 @@ _Your computer must be running Windows 10 or newer._
 
 <br/>
 
+## VSM data file 
+
+<img src="data.jpg" alt="VSM sample data" width="600" height="300"/>
+
+<br/>
+<br/>
+
+
 The script uses NumPy and SciPy libraries for numerical operations and curve fitting, and Matplotlib library for plotting. The GUI contains a single button that when clicked, opens a file dialog to select a text file containing magnetic data. Once the user selects a file, the script reads the data, calculates the key parameters, and displays them on the plot and a text label in the GUI.
 
 The key parameters displayed in the text label include the saturation moment, coercivity, remanence, magnetic moment, anisotropy constants, and magnetic susceptibility. The plot shows the magnetic moment as a function of the magnetic field, and also displays the saturation moment, coercivity, and remanence as horizontal and vertical lines. 
