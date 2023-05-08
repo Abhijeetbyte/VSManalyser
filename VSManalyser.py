@@ -1,8 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
-from tkinter import *
-from tkinter import filedialog
+from tkinter import filedialog, Tk, Button, Text
+
+import matplotlib
+matplotlib.use('TkAgg') # replace the GUI backend
 
 
 root=Tk() #call tkinter function
@@ -15,7 +17,6 @@ def Main():
 
     # Open file
     file_path = filedialog.askopenfilename(initialdir="/") # get the file path
-    #print(file_path)
 
     # Read in raw data from VSM measurement
     raw_data = np.loadtxt(file_path)
@@ -55,24 +56,15 @@ def Main():
     txt_output = Text(root, height=17, width=43)
     txt_output.place(x=25,y=220)# place
     
-    txt_output.insert(END, '               Key Parameters ' + "\n\n")
-    txt_output.insert(END, ' Saturation moment: {:.3f} Am^2'.format(saturation_moment) + "\n")
-    txt_output.insert(END, ' Coercivity: {:.3f} T'.format(coercivity) + "\n")
-    txt_output.insert(END, ' Remanence: {:.3f} Am^2'.format(remanence) + "\n")
-    txt_output.insert(END, ' Magnetic moment: {:.3f} Am^2'.format(magnetic_moment) + "\n")
-    txt_output.insert(END, ' Anisotropy constants: k1={:.3e} J/m^3, k2={:.3e} J/m^3'.format(k1, k2) + "\n\n")
-    txt_output.insert(END, ' Magnetic susceptibility: {:.3e} m^3/kg'.format(np.mean(magnetic_susceptibility)) + "\n")
+    txt_output.insert("end", "               Key Parameters " + "\n\n")
+    txt_output.insert("end", " Saturation moment: {:.3f} Am^2".format(saturation_moment) + "\n")
+    txt_output.insert("end", " Coercivity: {:.3f} T".format(coercivity) + "\n")
+    txt_output.insert("end", " Remanence: {:.3f} Am^2".format(remanence) + "\n")
+    txt_output.insert("end", " Magnetic moment: {:.3f} Am^2".format(magnetic_moment) + "\n")
+    txt_output.insert("end", " Anisotropy constants: k1={:.3e} J/m^3, k2={:.3e} J/m^3".format(k1, k2) + "\n\n")
+    txt_output.insert("end", " Magnetic susceptibility: {:.3e} m^3/kg".format(np.mean(magnetic_susceptibility)) + "\n")
     
-    """ Print out key parameters
-    print('\n           Key Parameters \n\n')
-    print(' Saturation moment: {:.3f} Am^2'.format(saturation_moment))
-    print(' Coercivity: {:.3f} T'.format(coercivity))
-    print(' Remanence: {:.3f} Am^2'.format(remanence))
-    print(' Magnetic moment: {:.3f} Am^2'.format(magnetic_moment))
-    print(' Anisotropy constants: k1={:.3e} J/m^3, k2={:.3e} J/m^3'.format(k1, k2))
-    print(' Magnetic susceptibility: {:.3e} m^3/kg'.format(np.mean(magnetic_susceptibility)))
-    
-    """
+
     plt.show() # show graph window
 
 
