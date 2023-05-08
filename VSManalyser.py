@@ -15,7 +15,7 @@ def Main():
 
     # Open file
     file_path = filedialog.askopenfilename(initialdir="/") # get the file path
-    print(file_path)
+    #print(file_path)
 
     # Read in raw data from VSM measurement
     raw_data = np.loadtxt(file_path)
@@ -63,7 +63,7 @@ def Main():
     txt_output.insert(END, ' Anisotropy constants: k1={:.3e} J/m^3, k2={:.3e} J/m^3'.format(k1, k2) + "\n\n")
     txt_output.insert(END, ' Magnetic susceptibility: {:.3e} m^3/kg'.format(np.mean(magnetic_susceptibility)) + "\n")
     
-    # Print out key parameters
+    """ Print out key parameters
     print('\n           Key Parameters \n\n')
     print(' Saturation moment: {:.3f} Am^2'.format(saturation_moment))
     print(' Coercivity: {:.3f} T'.format(coercivity))
@@ -71,31 +71,12 @@ def Main():
     print(' Magnetic moment: {:.3f} Am^2'.format(magnetic_moment))
     print(' Anisotropy constants: k1={:.3e} J/m^3, k2={:.3e} J/m^3'.format(k1, k2))
     print(' Magnetic susceptibility: {:.3e} m^3/kg'.format(np.mean(magnetic_susceptibility)))
-
-    plt.show()
-
-
-
-
-Select_file = Button(text ="Select file (.txt)",font=('Helvetica',12), bg="#1b6a97",fg="white",width=14,height=1, command = Main).place(x=130,y=30) #Clear All command button & location 
+    
+    """
+    plt.show() # show graph window
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Select_file = Button(text ="Select file (.txt)",font=('Helvetica',12), bg="#1b6a97",fg="white",width=14,height=1, command = Main).place(x=130,y=30) #command button & location
 
 
 root.mainloop()
