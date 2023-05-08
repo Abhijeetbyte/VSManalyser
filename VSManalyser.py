@@ -7,7 +7,7 @@ from tkinter import filedialog
 
 root=Tk() #call tkinter function
 root.geometry("400x550") #Width x Height (320,480)
-root.title("Motu App") #Title bar
+root.title("VSManalyser") #Title bar
 root.resizable(False,False) # window always stay in same size
 
 
