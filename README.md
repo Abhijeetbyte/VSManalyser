@@ -36,15 +36,18 @@ _Your computer must be running Windows 10 or newer._
 <br/>
 
 
-## VSM Data File Example
-
-![image](https://github.com/Abhijeetbyte/VSManalyser/assets/80936610/b59e8b5d-a750-4747-a9f4-fac63f83813d)
-
-</br>
 
 ## Working ⚙
 
-The script uses NumPy and SciPy libraries for numerical operations and curve fitting, and the Matplotlib library for plotting. The GUI contains a single button that, when clicked, opens a file dialog to select a text file containing magnetic data. Once the user selects a file, the script reads the data, calculates the key parameters, and displays them on the plot and a text label in the GUI.
+The script uses NumPy and SciPy libraries for numerical operations and curve fitting, and the Matplotlib library for plotting. The GUI contains a single button that, when clicked, opens a file dialogue to select a **text file** containing magnetic data. Once the user selects a file, the script reads the data, calculates the key parameters, and displays them on the plot and a text label in the GUI.
+<br/>
+
+
+![image](https://github.com/Abhijeetbyte/VSManalyser/assets/80936610/27e178fd-e1ab-4575-aa56-82402c9e6c35)
+
+
+<br/>
+
 
 The key parameters displayed in the text label include the saturation moment, coercivity, remanence, magnetic moment, anisotropy constants, and differential magnetic susceptibility. The plot shows the magnetic moment as a function of the magnetic field and also displays the saturation moment, coercivity, and remanence as horizontal and vertical lines.
 
@@ -61,6 +64,18 @@ The code is organized into several functions, each performing a specific task:
 * `display_parameters(saturation_moment, coercivity, remanence, magnetic_moment, k1, k2, susceptibility)` - Displays the calculated parameters in the Tkinter window.
 
 **VSM Analyser** provides a simple but powerful tool for analyzing magnetic data from a VSM measurement.
+
+<br/>
+
+
+## VSM Data File Example
+
+<img src="https://github.com/Abhijeetbyte/VSManalyser/assets/80936610/b59e8b5d-a750-4747-a9f4-fac63f83813d" width="600" alt="Descriptive text">
+
+<br/>
+<br/>
+
+
 
 ## License 📃
 
