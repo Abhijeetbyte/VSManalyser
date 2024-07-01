@@ -1,4 +1,4 @@
-# VSManalyser
+# VSM Analyser
 
 **A quick and portable way to analyze VSM data**
 
@@ -53,7 +53,7 @@ The code is organized into several functions, each performing a specific task:
 * `plot_data(field, moment, saturation_moment, coercivity, remanence)` - Plots the magnetic moment as a function of the magnetic field and marks key parameters.
 * `display_parameters(saturation_moment, coercivity, remanence, magnetic_moment, k1, k2, susceptibility)` - Displays the calculated parameters in the Tkinter window.
 
-Overall, VSManalyser provides a simple but powerful tool for analyzing magnetic data from a VSM measurement.
+**VSM Analyser** provides a simple but powerful tool for analyzing magnetic data from a VSM measurement.
 
 ## License
 
