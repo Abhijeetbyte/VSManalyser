@@ -1,10 +1,10 @@
-# VSM Analyser
+# <p align="center">VSM Analyser</p>
 
-**A quick and portable way to analyze VSM data**
+**<p align="center">A quick and portable way to analyze VSM data**</p>
 
 This Python script creates a graphical user interface (GUI) using the Tkinter library. The GUI allows the user to select a text file containing magnetic data from a Vibrating Sample Magnetometer (VSM) measurement. The script reads the data, converts the units to SI units, calculates key magnetic parameters (saturation moment, coercivity, remanence, magnetic moment, anisotropy constants, and differential magnetic susceptibility), and then displays the key parameters on both a plot and a text label in the GUI.
 
-## Features:
+## Features:  🌟
 
 * Open VSM measurement data in `.txt` format
 * Convert units to SI units
@@ -20,7 +20,10 @@ This Python script creates a graphical user interface (GUI) using the Tkinter li
 * Save analysis parameters for later use
 * Portable, no installation required
 
-## Download
+  <br/>
+  
+
+## Download ⬇
 
 [Latest stable release](https://github.com/abhijeetbyte/VSManalyser/releases/latest)
 
@@ -30,12 +33,16 @@ Releases and prereleases contain links to standalone packages (and installers fo
 
 _Your computer must be running Windows 10 or newer._
 
+<br/>
+
+
 ## VSM Data File Example
 
 ![image](https://github.com/Abhijeetbyte/VSManalyser/assets/80936610/b59e8b5d-a750-4747-a9f4-fac63f83813d)
 
+</br>
 
-## How It Works
+## Working ⚙
 
 The script uses NumPy and SciPy libraries for numerical operations and curve fitting, and the Matplotlib library for plotting. The GUI contains a single button that, when clicked, opens a file dialog to select a text file containing magnetic data. Once the user selects a file, the script reads the data, calculates the key parameters, and displays them on the plot and a text label in the GUI.
 
@@ -55,7 +62,7 @@ The code is organized into several functions, each performing a specific task:
 
 **VSM Analyser** provides a simple but powerful tool for analyzing magnetic data from a VSM measurement.
 
-## License
+## License 📃
 
 Licensed under the [CC0-1.0 License](LICENSE).
 
