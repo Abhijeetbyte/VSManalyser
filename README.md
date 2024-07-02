@@ -26,7 +26,7 @@ This Python script creates a graphical user interface (GUI) using the Tkinter li
 
 Download [main](VSManalyser.py ) **python** file 
 
-Run the script, you need to install the following Python packages:
+To run the script, you need to install the following Python packages:
 
 ```sh
 pip install numpy
