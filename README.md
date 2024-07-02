@@ -21,9 +21,24 @@ This Python script creates a graphical user interface (GUI) using the Tkinter li
 * Portable, no installation required
 
   <br/>
-  
 
-## Download ⬇
+## Installation 🖥
+
+Download [main](VSManalyser.py ) **python** file 
+
+Run the script, you need to install the following Python packages:
+
+```sh
+pip install numpy
+pip install matplotlib
+pip install scipy
+pip install tk
+
+```
+
+<br/>
+
+## Windows Download ⬇
 
 [Latest stable release](https://github.com/abhijeetbyte/VSManalyser/releases/latest)
 
