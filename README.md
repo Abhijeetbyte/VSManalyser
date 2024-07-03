@@ -44,7 +44,8 @@ pip install tk
 
 Releases and prereleases contain links to standalone packages (and installers for full releases) for Windows.
 
-* Portable version [Download v1.0](https://github.com/Abhijeetbyte/VSManalyser/releases/download/v1.0/VSManalyser.exe)
+* Portable version [Download v1.0](https://github.com/Abhijeetbyte/VSManalyser/releases/download/v1.0/VSManalyser.exe) ( Last May 9, 2023 - Outdated )
+
 
 _Your computer must be running Windows 10 or newer._
 
