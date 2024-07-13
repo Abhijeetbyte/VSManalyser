@@ -133,7 +133,7 @@ def plot_data(field, moment, saturation_moment, coercivity, remanence):
     plt.show()  # Display the plot
 
 # Function to display calculated parameters in the Tkinter window
-def display_parameters(saturation_moment, coercivity, remanence, magnetic_moment, k1, k2, susceptibility):
+def display_parameters(saturation_moment, interpolated_coercivity,closest_value_coercivity, remanence, magnetic_moment, k1, k2, susceptibility):
     txt_output.delete("1.0", "end")
     txt_output.insert("end", "                           Key Parameters " + "\n\n")
     txt_output.insert("end", f" Saturation moment: {saturation_moment:.3f} Am^2 \n\n")  # Display saturation moment
@@ -154,8 +154,8 @@ def main():
     magnetic_moment = calculate_magnetic_moment(field, moment)  # Calculate total magnetic moment
     k1, k2 = fit_anisotropy_constants(field, moment)  # Fit anisotropy constants
     susceptibility = calculate_differential_susceptibility(moment, field)  # Calculate differential susceptibility
-    display_parameters(saturation_moment, coercivity, remanence, magnetic_moment, k1, k2, susceptibility)  # Display parameters
-    plot_data(field, moment, saturation_moment, coercivity, remanence)  # Plot data and key parameters
+    display_parameters(saturation_moment, interpolated_coercivity,closest_value_coercivity, remanence, magnetic_moment, k1, k2, susceptibility)  # Display parameters
+    plot_data(field, moment, saturation_moment, interpolated_coercivity, remanence)  # Plot data and key parameters
 
 # Button to select a file and start the analysis
 select_file_button = Button(text="Select File (.txt)", font=('Helvetica', 12), bg="#1b6a97", fg="white",
