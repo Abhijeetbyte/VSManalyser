@@ -44,9 +44,16 @@ def calculate_coercivity(field, moment):
     coercivity = field[min_moment_index]  # Field value at the minimum moment
     return coercivity
 
-# Function to calculate the remanence from moment data
-def calculate_remanence(moment):
-    remanence = moment[-1]  # The last value of the moment array
+# Function to calculate the remanence from field and moment data
+def calculate_remanence(field, moment):
+    # Initialize remanence as None
+    remanence = None
+    # Loop through field and moment data to find the moment where the field is closest to zero
+    for i in range(len(field) - 1):
+        if field[i] <= 0 and field[i + 1] >= 0:
+            # Interpolate to find the moment at H=0
+            remanence = moment[i] + (moment[i + 1] - moment[i]) * (0 - field[i]) / (field[i + 1] - field[i])
+            break
     return remanence
 
 # Function to calculate the magnetic moment using numerical integration (area under the curve)
