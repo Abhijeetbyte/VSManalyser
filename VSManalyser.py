@@ -33,16 +33,28 @@ def calculate_saturation_moment(moment):
     saturation_moment = max_moment  # The maximum value found in the moment array
     return saturation_moment
 
-# Function to calculate the coercivity from field and moment data
+# Function to calculate coercivity using both interpolation and closest value methods
 def calculate_coercivity(field, moment):
-    min_moment = moment[0]  # Initialize with the first value
-    min_moment_index = 0  # Initialize the index of minimum moment
+    interpolated_coercivity = None
+    closest_value_coercivity = None
+
+    # Interpolation method
+    for i in range(len(moment) - 1):
+        if moment[i] <= 0 and moment[i + 1] >= 0:
+            interpolated_coercivity = field[i] + (field[i + 1] - field[i]) * (0 - moment[i]) / (moment[i + 1] - moment[i])
+            break
+
+    # Closest value method
+    min_distance = float('inf')
     for i in range(len(moment)):
-        if moment[i] < min_moment:
-            min_moment = moment[i]
-            min_moment_index = i  # Update index of minimum moment
-    coercivity = field[min_moment_index]  # Field value at the minimum moment
-    return coercivity
+        distance = abs(moment[i])
+        if distance < min_distance:
+            min_distance = distance
+            closest_value_coercivity = field[i]
+
+    return interpolated_coercivity, closest_value_coercivity
+
+
 
 # Function to calculate the remanence from field and moment data
 def calculate_remanence(field, moment):
@@ -125,7 +137,8 @@ def display_parameters(saturation_moment, coercivity, remanence, magnetic_moment
     txt_output.delete("1.0", "end")
     txt_output.insert("end", "                           Key Parameters " + "\n\n")
     txt_output.insert("end", f" Saturation moment: {saturation_moment:.3f} Am^2 \n\n")  # Display saturation moment
-    txt_output.insert("end", f" Coercivity: {coercivity:.3f} T \n\n")  # Display coercivity
+    txt_output.insert("end", f" Interpolated Coercivity: {interpolated_coercivity:.3f} T \n\n")  # Display coercivity
+    txt_output.insert("end", f" Closest Value Coercivity: {closest_value_coercivity:.3f} T \n\n")  # Display coercivity
     txt_output.insert("end", f" Remanence: {remanence:.3f} Am^2 \n\n")  # Display remanence
     txt_output.insert("end", f" Magnetic moment: {magnetic_moment:.3f} Am^2 \n\n")  # Display magnetic moment
     txt_output.insert("end", f" Anisotropy constants: k1={k1:.3e} J/m^3, k2={k2:.3e} J/m^3 \n\n")  # Display anisotropy constants
@@ -136,8 +149,8 @@ def main():
     file_path = filedialog.askopenfilename(initialdir="/")  # Prompt user to select a file
     field, moment = read_raw_data(file_path)  # Read and process the data
     saturation_moment = calculate_saturation_moment(moment)  # Calculate saturation moment
-    coercivity = calculate_coercivity(field, moment)  # Calculate coercivity
-    remanence = calculate_remanence(moment)  # Calculate remanence
+    interpolated_coercivity, closest_value_coercivity = calculate_coercivity(field, moment) # Calculate coercivity  
+    remanence = calculate_remanence(field, moment)  # Calculate remanence
     magnetic_moment = calculate_magnetic_moment(field, moment)  # Calculate total magnetic moment
     k1, k2 = fit_anisotropy_constants(field, moment)  # Fit anisotropy constants
     susceptibility = calculate_differential_susceptibility(moment, field)  # Calculate differential susceptibility
