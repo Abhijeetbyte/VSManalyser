@@ -38,13 +38,14 @@ def calculate_coercivity(field, moment):
     interpolated_coercivity = None
     closest_value_coercivity = None
 
-    # Interpolation method
+    # Interpolation method - Preferred for accurate coercivity calculation
     for i in range(len(moment) - 1):
         if moment[i] <= 0 and moment[i + 1] >= 0:
+            # Linear interpolation to find the field value where moment is zero
             interpolated_coercivity = field[i] + (field[i + 1] - field[i]) * (0 - moment[i]) / (moment[i + 1] - moment[i])
             break
 
-    # Closest value method
+    # Closest value method - Quick estimate, less accurate
     min_distance = float('inf')
     for i in range(len(moment)):
         distance = abs(moment[i])
@@ -53,6 +54,7 @@ def calculate_coercivity(field, moment):
             closest_value_coercivity = field[i]
 
     return interpolated_coercivity, closest_value_coercivity
+
 
 
 
